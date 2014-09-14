@@ -252,18 +252,6 @@ Modificadores de Efectos en HiCanvas :)
     Contexto[Numero_Capa].putImageData(Datos_Imagen, 0, 0);
   }
 
-  this.grayScaleFade = function(PosicionX, PosicionY, Ancho, Alto, Factor_Red, Factor_Green, Factor_Blue, Numero_Capa) {
-    var Datos_Imagen = Contexto[Numero_Capa].getImageData(PosicionX, PosicionY, Anchura, Altura);
-    var Pixeles = Datos_Imagen.data;
-      for (var Contador = 0, Numero = Pixeles.length; Contador < Numero; Contador = Contador + 4) {
-        var Escala_Grises = Pixeles[Contador] * Factor_Red + Pixeles[Contador + 1] * Factor_Green + Pixeles[Contador + 2] * Factor_Blue;
-        Pixeles[Contador] = Escala_Grises;
-        Pixeles[Contador + 1] = Escala_Grises;
-        Pixeles[Contador + 2] = Escala_Grises;
-      }
-    Contexto[Numero_Capa].putImageData(Datos_Imagen, 0, 0);
-  }
-
   this.gradient = function(PosicionX1, PosicionY1, PosicionX2, PosicionY2, Ancho, Alto, Color1, Color2, Numero_Capa) {
     var Gradiente = Contexto[Numero_Capa].createLinearGradient(PosicionX1, PosicionY1, PosicionX2, PosicionY2);
     Gradiente.addColorStop(0, Color1);
